@@ -70,8 +70,11 @@ void CreateList(Node **pListHead)
 
 void DeleteNode(Node **pListHead, Node *pToBeDeleted)
 {
+    // 把后一个节点的值复制到要删除
     pToBeDeleted->element = pToBeDeleted->next->element;
+    // 使用delete释放后一个节点的内存
     delete pToBeDeleted->next;
+    // 修改指针
     pToBeDeleted->next =  pToBeDeleted->next->next;
 }
 
